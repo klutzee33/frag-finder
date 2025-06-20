@@ -1,0 +1,12 @@
+{
+  "id": "web_server_setup",
+  "name": "Apache Web Server Setup",
+  "description": "Install and configure Apache web server with basic security",
+  "category": "Web Services",
+  "variables": {
+    "server_name": "example.com",
+    "document_root": "/var/www/html",
+    "enable_ssl": false
+  },
+  "playbook_content": "---\n- name: Apache Web Server Setup\n  hosts: all\n  become: yes\n  vars:\n    server_name: \"{{ server_name | default('localhost') }}\"\n    document_root: \"{{ document_root | default('/var/www/html') }}\"\n    enable_ssl: \"{{ enable_ssl | default(false) }}\"\n  \n  tasks:\n    - name: Install Apache\n      yum:\n        name: httpd\n        state: present\n    \n    - name: Start and enable Apache\n      systemd:\n        name: httpd\n        state: started\n        enabled: yes\n    \n    - name: Configure Apache virtual host\n      template:\n        content: |\n          <VirtualHost *:80>\n              ServerName {{ server_name }}\n              DocumentRoot {{ document_root }}\n              ErrorLog logs/{{ server_name }}_error.log\n              CustomLog logs/{{ server_name }}_access.log combined\n          </VirtualHost>\n        dest: /etc/httpd/conf.d/{{ server_name }}.conf\n      notify: restart apache\n    \n    - name: Open firewall for HTTP\n      firewalld:\n        service: http\n        permanent: yes\n        state: enabled\n        immediate: yes\n      ignore_errors: yes\n    \n    - name: Open firewall for HTTPS\n      firewalld:\n        service: https\n        permanent: yes\n        state: enabled\n        immediate: yes\n      when: enable_ssl\n      ignore_errors: yes\n  \n  handlers:\n    - name: restart apache\n      systemd:\n        name: httpd\n        state: restarted\n"
+}

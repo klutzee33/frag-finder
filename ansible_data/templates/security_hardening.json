@@ -1,0 +1,12 @@
+{
+  "id": "security_hardening",
+  "name": "RHEL 8 Security Hardening",
+  "description": "Basic security hardening for RHEL 8 systems",
+  "category": "Security",
+  "variables": {
+    "disable_root_login": true,
+    "install_fail2ban": true,
+    "update_system": true
+  },
+  "playbook_content": "---\n- name: RHEL 8 Security Hardening\n  hosts: all\n  become: yes\n  vars:\n    disable_root_login: \"{{ disable_root_login | default(true) }}\"\n    install_fail2ban: \"{{ install_fail2ban | default(true) }}\"\n    update_system: \"{{ update_system | default(true) }}\"\n  \n  tasks:\n    - name: Update all packages\n      yum:\n        name: \"*\"\n        state: latest\n      when: update_system\n    \n    - name: Install EPEL repository\n      yum:\n        name: epel-release\n        state: present\n    \n    - name: Install fail2ban\n      yum:\n        name: fail2ban\n        state: present\n      when: install_fail2ban\n    \n    - name: Configure fail2ban\n      copy:\n        content: |\n          [DEFAULT]\n          bantime = 600\n          findtime = 600\n          maxretry = 3\n          \n          [sshd]\n          enabled = true\n        dest: /etc/fail2ban/jail.local\n      when: install_fail2ban\n      notify: restart fail2ban\n    \n    - name: Disable root SSH login\n      lineinfile:\n        path: /etc/ssh/sshd_config\n        regexp: '^PermitRootLogin'\n        line: 'PermitRootLogin no'\n      when: disable_root_login\n      notify: restart sshd\n    \n    - name: Set strong SSH configuration\n      blockinfile:\n        path: /etc/ssh/sshd_config\n        block: |\n          Protocol 2\n          PasswordAuthentication no\n          PermitEmptyPasswords no\n          X11Forwarding no\n          MaxAuthTries 3\n        marker: \"# {mark} ANSIBLE SECURITY CONFIG\"\n      notify: restart sshd\n    \n    - name: Configure firewall\n      firewalld:\n        service: ssh\n        permanent: yes\n        state: enabled\n        immediate: yes\n      ignore_errors: yes\n  \n  handlers:\n    - name: restart fail2ban\n      systemd:\n        name: fail2ban\n        state: restarted\n        enabled: yes\n    \n    - name: restart sshd\n      systemd:\n        name: sshd\n        state: restarted\n"
+}

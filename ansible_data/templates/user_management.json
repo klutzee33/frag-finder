@@ -1,0 +1,12 @@
+{
+  "id": "user_management",
+  "name": "User Management",
+  "description": "Create and manage system users with proper security",
+  "category": "System Administration",
+  "variables": {
+    "username": "newuser",
+    "create_sudo_user": false,
+    "ssh_public_key": ""
+  },
+  "playbook_content": "---\n- name: User Management\n  hosts: all\n  become: yes\n  vars:\n    username: \"{{ username | default('newuser') }}\"\n    create_sudo_user: \"{{ create_sudo_user | default(false) }}\"\n    ssh_public_key: \"{{ ssh_public_key | default('') }}\"\n  \n  tasks:\n    - name: Create user\n      user:\n        name: \"{{ username }}\"\n        shell: /bin/bash\n        create_home: yes\n        state: present\n    \n    - name: Add user to sudo group\n      user:\n        name: \"{{ username }}\"\n        groups: wheel\n        append: yes\n      when: create_sudo_user\n    \n    - name: Create .ssh directory\n      file:\n        path: \"/home/{{ username }}/.ssh\"\n        state: directory\n        owner: \"{{ username }}\"\n        group: \"{{ username }}\"\n        mode: '0700'\n      when: ssh_public_key != \"\"\n    \n    - name: Add SSH public key\n      authorized_key:\n        user: \"{{ username }}\"\n        key: \"{{ ssh_public_key }}\"\n        state: present\n      when: ssh_public_key != \"\"\n    \n    - name: Set password expiry\n      shell: chage -M 90 {{ username }}\n    \n    - name: Create user home directory structure\n      file:\n        path: \"/home/{{ username }}/{{ item }}\"\n        state: directory\n        owner: \"{{ username }}\"\n        group: \"{{ username }}\"\n        mode: '0755'\n      loop:\n        - bin\n        - scripts\n        - logs\n"
+}

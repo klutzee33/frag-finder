@@ -1,0 +1,16 @@
+{
+  "id": "firewall_config",
+  "name": "Firewall Configuration",
+  "description": "Configure firewalld rules and security zones",
+  "category": "Security",
+  "variables": {
+    "allowed_ports": [
+      "22/tcp",
+      "80/tcp",
+      "443/tcp"
+    ],
+    "default_zone": "public",
+    "enable_logging": true
+  },
+  "playbook_content": "---\n- name: Firewall Configuration\n  hosts: all\n  become: yes\n  vars:\n    allowed_ports: \"{{ allowed_ports | default(['22/tcp', '80/tcp', '443/tcp']) }}\"\n    default_zone: \"{{ default_zone | default('public') }}\"\n    enable_logging: \"{{ enable_logging | default(true) }}\"\n  \n  tasks:\n    - name: Install firewalld\n      yum:\n        name: firewalld\n        state: present\n    \n    - name: Start and enable firewalld\n      systemd:\n        name: firewalld\n        state: started\n        enabled: yes\n    \n    - name: Set default zone\n      firewalld:\n        zone: \"{{ default_zone }}\"\n        state: enabled\n        permanent: yes\n        immediate: yes\n    \n    - name: Configure allowed ports\n      firewalld:\n        port: \"{{ item }}\"\n        zone: \"{{ default_zone }}\"\n        permanent: yes\n        state: enabled\n        immediate: yes\n      loop: \"{{ allowed_ports }}\"\n    \n    - name: Enable firewall logging\n      firewalld:\n        zone: \"{{ default_zone }}\"\n        permanent: yes\n        state: enabled\n        immediate: yes\n      when: enable_logging\n    \n    - name: Remove unnecessary services\n      firewalld:\n        service: \"{{ item }}\"\n        zone: \"{{ default_zone }}\"\n        permanent: yes\n        state: disabled\n        immediate: yes\n      loop:\n        - dhcpv6-client\n        - mdns\n      ignore_errors: yes\n    \n    - name: Configure rich rules for SSH rate limiting\n      firewalld:\n        rich_rule: 'rule service name=\"ssh\" accept limit value=\"3/m\"'\n        zone: \"{{ default_zone }}\"\n        permanent: yes\n        state: enabled\n        immediate: yes\n      ignore_errors: yes\n"
+}
