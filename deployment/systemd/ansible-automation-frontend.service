@@ -1,0 +1,29 @@
+[Unit]
+Description=Ansible Automation Platform - Frontend
+After=network.target ansible-automation-backend.service
+Wants=network.target
+Requires=ansible-automation-backend.service
+
+[Service]
+Type=simple
+User=ansible-user
+Group=ansible-user
+WorkingDirectory=/opt/ansible-automation/frontend
+Environment=NODE_ENV=production
+Environment=REACT_APP_BACKEND_URL=http://localhost:8000
+ExecStart=/usr/bin/npx serve -s build -l 3000
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=ansible-automation-frontend
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/opt/ansible-automation/frontend
+
+[Install]
+WantedBy=multi-user.target
