@@ -164,7 +164,7 @@ const ProductCard = ({ result, discounters, onViewDetails }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-      <div className="aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden">
+      <div className="bg-gray-200 overflow-hidden">
         <img
           src={fragrance.image_url || 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400'}
           alt={fragrance.name}
