@@ -23,7 +23,7 @@ const HeroSection = ({ onSearch }) => {
           Compare prices from top discount retailers and save on designer fragrances
         </p>
         
-        <form onSearch={searchQuery} className="max-w-2xl mx-auto flex gap-4">
+        <form onSubmit={handleSearch} className="max-w-2xl mx-auto flex gap-4">
           <div className="flex-1">
             <input
               type="text"
