@@ -11,14 +11,14 @@ Your complete **RHEL 8 Ansible Script Writer & Executor** has been packaged for 
 ## 🔗 Download Methods
 
 ### Method 1: Direct Download (From Your Browser)
-1. Right-click on this file link: [Download ansible-automation-platform-1.0.0.tar.gz](https://324d99f2-a7af-4d4b-a668-0a81b6b76c02.preview.emergentagent.com/download/ansible-automation-platform-1.0.0.tar.gz)
+1. Right-click on this file link: [Download ansible-automation-platform-1.0.0.tar.gz](https://5c6aec5a-390b-4344-beee-6955c52e6a75.preview.emergentagent.com/download/ansible-automation-platform-1.0.0.tar.gz)
 2. Select "Save Link As" or "Download"
 3. Save to your local machine
 
 ### Method 2: Command Line Download
 ```bash
 # From your RHEL 8 system, run:
-wget https://324d99f2-a7af-4d4b-a668-0a81b6b76c02.preview.emergentagent.com/download/ansible-automation-platform-1.0.0.tar.gz
+wget https://5c6aec5a-390b-4344-beee-6955c52e6a75.preview.emergentagent.com/download/ansible-automation-platform-1.0.0.tar.gz
 
 # Verify integrity
 sha256sum ansible-automation-platform-1.0.0.tar.gz
