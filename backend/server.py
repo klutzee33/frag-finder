@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, BackgroundTasks
+from fastapi import FastAPI, APIRouter, HTTPException, BackgroundTasks, Query
 from fastapi.responses import StreamingResponse
 from starlette.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -15,12 +15,14 @@ from pathlib import Path
 import tempfile
 import shutil
 import re
+import requests
+from urllib.parse import quote
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI()
+app = FastAPI(title="Fragrance Discounter Search Engine", version="1.0.0")
 api_router = APIRouter(prefix="/api")
 
 # Data models
