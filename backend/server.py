@@ -249,30 +249,49 @@ SAMPLE_PRICES = [
     FragrancePrice(id="p1", fragrance_id="f1", discounter_id="1", price=89.99, original_price=120.00, discount_percentage=25, product_url="https://fragrancex.com/bleu-chanel"),
     FragrancePrice(id="p2", fragrance_id="f1", discounter_id="2", price=92.50, original_price=120.00, discount_percentage=23, product_url="https://fragrancenet.com/bleu-chanel"),
     FragrancePrice(id="p3", fragrance_id="f1", discounter_id="3", price=95.00, original_price=120.00, discount_percentage=21, product_url="https://jomashop.com/bleu-chanel"),
+    FragrancePrice(id="p18", fragrance_id="f1", discounter_id="5", price=87.99, original_price=120.00, discount_percentage=27, product_url="https://fragrancebuy.ca/bleu-chanel"),
+    FragrancePrice(id="p19", fragrance_id="f1", discounter_id="8", price=86.50, original_price=120.00, discount_percentage=28, product_url="https://ediscountperfumes.com/bleu-chanel"),
+    FragrancePrice(id="p20", fragrance_id="f1", discounter_id="10", price=91.99, original_price=120.00, discount_percentage=23, product_url="https://fragrancelord.com/bleu-chanel"),
     
     # Miss Dior prices
     FragrancePrice(id="p4", fragrance_id="f2", discounter_id="1", price=79.99, original_price=108.00, discount_percentage=26, product_url="https://fragrancex.com/miss-dior"),
     FragrancePrice(id="p5", fragrance_id="f2", discounter_id="2", price=82.00, original_price=108.00, discount_percentage=24, product_url="https://fragrancenet.com/miss-dior"),
     FragrancePrice(id="p6", fragrance_id="f2", discounter_id="4", price=85.50, original_price=108.00, discount_percentage=21, product_url="https://perfume.com/miss-dior"),
+    FragrancePrice(id="p21", fragrance_id="f2", discounter_id="6", price=77.99, original_price=108.00, discount_percentage=28, product_url="https://tripletraders.com/miss-dior"),
+    FragrancePrice(id="p22", fragrance_id="f2", discounter_id="9", price=83.50, original_price=108.00, discount_percentage=23, product_url="https://sabina.com/miss-dior"),
+    FragrancePrice(id="p23", fragrance_id="f2", discounter_id="12", price=81.99, original_price=108.00, discount_percentage=24, product_url="https://strawberrynet.com/miss-dior"),
     
     # Sauvage prices
     FragrancePrice(id="p7", fragrance_id="f3", discounter_id="1", price=69.99, original_price=98.00, discount_percentage=29, product_url="https://fragrancex.com/sauvage"),
     FragrancePrice(id="p8", fragrance_id="f3", discounter_id="2", price=72.50, original_price=98.00, discount_percentage=26, product_url="https://fragrancenet.com/sauvage"),
     FragrancePrice(id="p9", fragrance_id="f3", discounter_id="3", price=74.99, original_price=98.00, discount_percentage=23, product_url="https://jomashop.com/sauvage"),
+    FragrancePrice(id="p24", fragrance_id="f3", discounter_id="7", price=68.50, original_price=98.00, discount_percentage=30, product_url="https://giftexpress.com/sauvage"),
+    FragrancePrice(id="p25", fragrance_id="f3", discounter_id="11", price=71.99, original_price=98.00, discount_percentage=27, product_url="https://mysticperfume.com/sauvage"),
+    FragrancePrice(id="p26", fragrance_id="f3", discounter_id="13", price=73.50, original_price=98.00, discount_percentage=25, product_url="https://fragrance-naveah.com/sauvage"),
     
     # Black Opium prices
     FragrancePrice(id="p10", fragrance_id="f4", discounter_id="2", price=67.99, original_price=96.00, discount_percentage=29, product_url="https://fragrancenet.com/black-opium"),
     FragrancePrice(id="p11", fragrance_id="f4", discounter_id="3", price=71.00, original_price=96.00, discount_percentage=26, product_url="https://jomashop.com/black-opium"),
     FragrancePrice(id="p12", fragrance_id="f4", discounter_id="4", price=73.50, original_price=96.00, discount_percentage=23, product_url="https://perfume.com/black-opium"),
+    FragrancePrice(id="p27", fragrance_id="f4", discounter_id="14", price=65.99, original_price=96.00, discount_percentage=31, product_url="https://venba.com/black-opium"),
+    FragrancePrice(id="p28", fragrance_id="f4", discounter_id="15", price=69.50, original_price=96.00, discount_percentage=28, product_url="https://aurafragrance.com/black-opium"),
+    FragrancePrice(id="p29", fragrance_id="f4", discounter_id="16", price=72.99, original_price=96.00, discount_percentage=24, product_url="https://olfactoryfactoryllc.com/black-opium"),
     
     # Acqua di Gio prices
     FragrancePrice(id="p13", fragrance_id="f5", discounter_id="1", price=54.99, original_price=76.00, discount_percentage=28, product_url="https://fragrancex.com/acqua-di-gio"),
     FragrancePrice(id="p14", fragrance_id="f5", discounter_id="2", price=57.50, original_price=76.00, discount_percentage=24, product_url="https://fragrancenet.com/acqua-di-gio"),
+    FragrancePrice(id="p30", fragrance_id="f5", discounter_id="5", price=53.99, original_price=76.00, discount_percentage=29, product_url="https://fragrancebuy.ca/acqua-di-gio"),
+    FragrancePrice(id="p31", fragrance_id="f5", discounter_id="8", price=52.50, original_price=76.00, discount_percentage=31, product_url="https://ediscountperfumes.com/acqua-di-gio"),
+    FragrancePrice(id="p32", fragrance_id="f5", discounter_id="10", price=56.99, original_price=76.00, discount_percentage=25, product_url="https://fragrancelord.com/acqua-di-gio"),
     
     # Coco Mademoiselle prices
     FragrancePrice(id="p15", fragrance_id="f6", discounter_id="1", price=94.99, original_price=132.00, discount_percentage=28, product_url="https://fragrancex.com/coco-mademoiselle"),
     FragrancePrice(id="p16", fragrance_id="f6", discounter_id="3", price=99.00, original_price=132.00, discount_percentage=25, product_url="https://jomashop.com/coco-mademoiselle"),
     FragrancePrice(id="p17", fragrance_id="f6", discounter_id="4", price=102.50, original_price=132.00, discount_percentage=22, product_url="https://perfume.com/coco-mademoiselle"),
+    FragrancePrice(id="p33", fragrance_id="f6", discounter_id="6", price=92.99, original_price=132.00, discount_percentage=30, product_url="https://tripletraders.com/coco-mademoiselle"),
+    FragrancePrice(id="p34", fragrance_id="f6", discounter_id="9", price=97.50, original_price=132.00, discount_percentage=26, product_url="https://sabina.com/coco-mademoiselle"),
+    FragrancePrice(id="p35", fragrance_id="f6", discounter_id="11", price=96.99, original_price=132.00, discount_percentage=27, product_url="https://mysticperfume.com/coco-mademoiselle"),
+    FragrancePrice(id="p36", fragrance_id="f6", discounter_id="12", price=98.50, original_price=132.00, discount_percentage=25, product_url="https://strawberrynet.com/coco-mademoiselle"),
 ]
 
 def filter_fragrances(filters: SearchFilters) -> List[SearchResult]:
