@@ -100,6 +100,78 @@ SAMPLE_DISCOUNTERS = [
         name="Perfume.com", 
         website="https://www.perfume.com",
         description="Designer and niche fragrances"
+    ),
+    Discounter(
+        id="5", 
+        name="FragranceBuy.ca", 
+        website="https://www.fragrancebuy.ca",
+        description="Canadian discount fragrance retailer"
+    ),
+    Discounter(
+        id="6", 
+        name="Triple Traders", 
+        website="https://www.tripletraders.com",
+        description="Wholesale beauty and fragrance distributor"
+    ),
+    Discounter(
+        id="7", 
+        name="Gift Express", 
+        website="https://www.giftexpress.com",
+        description="Discounted fragrances and gift sets"
+    ),
+    Discounter(
+        id="8", 
+        name="eDiscount Perfumes", 
+        website="https://www.ediscountperfumes.com",
+        description="Online discount perfume specialist"
+    ),
+    Discounter(
+        id="9", 
+        name="Sabina.com", 
+        website="https://www.sabina.com",
+        description="Luxury fragrances at reduced prices"
+    ),
+    Discounter(
+        id="10", 
+        name="Fragrance Lord", 
+        website="https://www.fragrancelord.com",
+        description="Premium fragrances at discount prices"
+    ),
+    Discounter(
+        id="11", 
+        name="Mystic Perfume", 
+        website="https://www.mysticperfume.com",
+        description="Authentic designer fragrances discounted"
+    ),
+    Discounter(
+        id="12", 
+        name="Strawberry Net", 
+        website="https://www.strawberrynet.com",
+        description="International beauty and fragrance retailer"
+    ),
+    Discounter(
+        id="13", 
+        name="Fragrance Naveah", 
+        website="https://www.fragrance-naveah.com",
+        description="Boutique fragrance discount store"
+    ),
+    Discounter(
+        id="14", 
+        name="Venba", 
+        website="https://www.venba.com",
+        description="Designer fragrances at wholesale prices"
+    ),
+    Discounter(
+        id="15", 
+        name="Aura Fragrance", 
+        website="https://www.aurafragrance.com",
+        description="Curated selection of discounted perfumes"
+    ),
+    Discounter(
+        id="16", 
+        name="Olfactory Factory LLC", 
+        website="https://www.olfactoryfactoryllc.com",
+        description="Professional fragrance distributor"
     )
 ]
 
